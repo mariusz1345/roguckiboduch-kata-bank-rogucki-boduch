@@ -4,14 +4,9 @@ I want calculation functions
 So that I can calculate
 
 Scenario: Add using Java source object
-Given I have a Java based adder
+Given I have an adder
 When I add 1 and 2
 Then I get 3
-
-Scenario: Add using Groovy source object
-Given I have a Groovy based adder 
-When I add 2 and 2
-Then I get 4
 
 @wip
 Scenario: Example scenario that is not ready to automate (hence the @wip tag)

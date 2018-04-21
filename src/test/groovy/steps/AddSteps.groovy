@@ -1,20 +1,15 @@
 package steps
 
 import groovy.transform.Field
-import app.JavaAdder
-import app.GroovyAdder
+import app.Adder
 
 this.metaClass.mixin(cucumber.api.groovy.EN)
 
 @Field adder
 @Field result
 
-Given(~/^I have a Java based adder$/) { ->
-    adder = new JavaAdder()
-}
-
-Given(~/^I have a Groovy based adder$/) { ->
-	adder = new GroovyAdder()
+Given(~/^I have an adder$/) { ->
+    adder = new Adder()
 }
 
 When(~/^I add (\d+) and (\d+)$/) { int x, int y ->

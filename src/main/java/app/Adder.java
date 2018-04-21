@@ -1,6 +1,6 @@
 package app;
 
-public class JavaAdder {
+public class Adder {
 	int add(Integer a, int b) {
 		return a + b;
 	}
