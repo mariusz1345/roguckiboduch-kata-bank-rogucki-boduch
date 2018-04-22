@@ -4,9 +4,12 @@ apply plugin: "java"
 repositories { mavenCentral() }
 
 dependencies {
-	compile "org.codehaus.groovy:groovy-all:2.4.3"
+	compile "org.codehaus.groovy:groovy-all:2.4.9"
+	compile group: 'com.google.guava', name: 'guava', version: '24.1-jre'
 	testCompile "info.cukes:cucumber-groovy:1.2.0"
+	testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
 	testCompile "info.cukes:gherkin:2.12.2"
+	testCompile group: 'org.assertj', name: 'assertj-core', version: '3.9.1'
 }
 
 configurations {
@@ -22,7 +25,7 @@ task cucumber() {
 			args = [
 				'--plugin', 'pretty',
 				'--tags', '~@wip',
-				'--glue', 'src/test/groovy/steps',
+				'--glue', 'src/test/groovy/com/plgrnds/tests/bank/steps',
 				'src/test/resources'
 			]
 		}
