@@ -1,6 +1,6 @@
 package com.plgrnds.tests.bank.steps
 
-mport com.plgrnds.tests.bank.Account
+import com.plgrnds.tests.bank.Account
 import com.plgrnds.tests.bank.AccountRepository
 import com.plgrnds.tests.bank.Bank
 import com.plgrnds.tests.bank.Customer
