@@ -16,7 +16,6 @@ this.metaClass.mixin(cucumber.api.groovy.EN)
 @Field Bank bank
 
 @Field AccountA
-@Field AccountB
 @Field Set<Account> customerAccounts
 @Field balance
 
@@ -31,21 +30,10 @@ Given (~/^balance on account A is 100$/) { ->
     accountRepository.addAccount(AccountA)
 }
 
-And (~/^balance on account B is 1000&=$/) {->
-    customer = new Customer()
-    AccountA = new Account(customer, 1000)
-    accountRepository.addAccount(AccountB)
+When (~/^customer deposits 10 to his account$/) {->
+    AccountA.balance + 10.0
 }
 
-When (~/^99.91 is transfered from account A to B$/) {->
-    AccountA.balance - 99.91
-    AccountB.balance + 99.91
-}
-
-Then (~/^balance on account A is 0.09$/) {->
-    AccountA.balance = 0.09
-}
-
-And (~/^balance on account B is 1099.91$/) {->
-    AccountB.balance=1099.91
+Then (~/^balance on account A is 110.0$/) {->
+    AccountA.balance = 110.0
 }
