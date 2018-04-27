@@ -14,7 +14,6 @@ this.metaClass.mixin(cucumber.api.groovy.EN)
 @Field AccountRepository accountRepository
 @Field Customer customer
 @Field Bank bank
-
 @Field AccountA
 @Field Set<Account> customerAccounts
 @Field balance
