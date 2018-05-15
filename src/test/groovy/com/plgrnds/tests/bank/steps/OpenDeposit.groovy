@@ -39,5 +39,6 @@ Then(~/he owns a deposit with balance 90^$/) { ->
 }
 
 And(~/the account has balance 10^$/) { ->
+    accountRepository
 }
 
