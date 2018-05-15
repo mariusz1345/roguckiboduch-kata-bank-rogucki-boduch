@@ -9,7 +9,7 @@ public class Account {
     private final Customer owner;
     private double balance;
 
-    public Account(Customer owner, balance) {
+    public Account(Customer owner, double balance) {
         id = UUID.randomUUID();
         this.owner = owner;
         this.balance=balance;
