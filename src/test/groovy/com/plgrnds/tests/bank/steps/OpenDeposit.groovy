@@ -31,7 +31,6 @@ Given(~/a customer has an account with balance 100^$/) { ->
 
 Given(~/he opens a deposit with balance 90^$/) { ->
     deposit = new Deposit(customer, 90)
-    accountRepository.addDeposit(deposit)
 }
 
 Then(~/he owns a deposit with balance 90^$/) { ->
