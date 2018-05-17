@@ -36,6 +36,7 @@ public class Deposit {
 
     public void setTerminationTimeByMonths (int months) {
         openTime.add(Calendar.MONTH, months);
+        howManyMonthsWillDepositLast = months;
     }
     public Calendar getTerminationTime() {
         return terminationTime;
@@ -52,8 +53,4 @@ public class Deposit {
         return howManyMonthsWillDepositLast;
     }
 
-
-    public void setHowManyMonthsWillDepositLast(int howManyMonthsWillDepositLast) {
-        this.howManyMonthsWillDepositLast = howManyMonthsWillDepositLast;
-    }
 }
