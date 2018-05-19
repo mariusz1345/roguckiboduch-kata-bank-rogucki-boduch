@@ -60,6 +60,10 @@ public class Deposit {
     public Account getConnectedAccount() {
         return this.connectedAccount;
     }
+    
+    public boolean isOpen() {
+        return this.open;
+    }
 
 
     public int getHowManyMonthsWillDepositLast() {
