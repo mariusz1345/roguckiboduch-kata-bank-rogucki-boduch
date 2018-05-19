@@ -56,6 +56,10 @@ public class Deposit {
     public Customer getOwner() {
         return this.connectedAccount.getOwner();
     }
+    
+    public Account getConnectedAccount() {
+        return this.connectedAccount;
+    }
 
 
     public int getHowManyMonthsWillDepositLast() {
