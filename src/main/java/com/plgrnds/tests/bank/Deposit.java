@@ -6,21 +6,26 @@ import java.util.Date;
 
 public class Deposit {
     private Customer owner;
+    private Account connectedAccount;
     private double depositBalance;
     private Calendar openTime;
     private Calendar terminationTime;
     public Calendar now = Calendar.getInstance();
     private double interestRate;
     private int howManyMonthsWillDepositLast;
+    private boolean open;
 
 
 
 
-    public Deposit(Customer owner, double depositBalance) {
+    public Deposit(Account account, Customer owner, double depositBalance) {
         this.owner=owner;
+        this.connectedAccount = account;
         this.setDepositBalance(depositBalance);
         this.openTime = Calendar.getInstance();
+        private boolean open;
     }
+    
 
 
     public double getDepositBalance() {
@@ -46,6 +51,10 @@ public class Deposit {
     }
     public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
+    }
+    
+    public Customer getOwner() {
+        return this.connectedAccount.getOwner();
     }
 
 
