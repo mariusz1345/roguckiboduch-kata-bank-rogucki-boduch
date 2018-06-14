@@ -19,9 +19,9 @@ this.metaClass.mixin(cucumber.api.groovy.EN)
 @Field secondAccount
 @Field Set<Account> customerAccounts
 
-Given(~/^there is a bank$/) { ->
-    accountRepository = new InMemoryAccountRepository()
-    bank = new Bank(accountRepository)
+Given(~/^there is a customer with a deposit opened$/) { ->
+    customer = new Customer()
+
 }
 
 Given(~/^a customer has two accounts open$/) { ->
