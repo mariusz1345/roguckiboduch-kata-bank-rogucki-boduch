@@ -15,29 +15,27 @@ this.metaClass.mixin(cucumber.api.groovy.EN)
 @Field Customer customer
 @Field Bank bank
 
-@Field firstAccount
-@Field secondAccount
 @Field Set<Account> customerAccounts
+@Field newFunds
+@Field interestRateForNewFunds
+@Field interestForNewFunds
+@Field howManyMonthsWillDepositLast
 
 Given(~/^there is a customer with a deposit opened$/) { ->
     customer = new Customer()
-
-}
-
-Given(~/^a customer has two accounts open$/) { ->
-    customer = new Customer()
-    firstAccount = new Account(customer)
-    secondAccount = new Account(customer)
     accountRepository.addAccount(firstAccount)
-    accountRepository.addAccount(secondAccount)
+    deposit = new Deposit(customer, 100)
+
 }
 
-When(~/^he lists his accounts$/) { ->
-    customerAccounts = bank.getCustomerAccounts(customer)
+Given(~/^he transfers new funds to the existing deposit$/) { ->
+    deposit.depositBalance = deposit.depositBalance + newFunds
 }
 
-Then(~/^only those accounts are on the list$/) { ->
-    assertThat(customerAccounts).containsExactly(
-            firstAccount, secondAccount
-    )
+When(~/^the interest rate for these funds is 0.5% greater than the original interest rate$/) { ->
+    interestRateForNewFunds = deposit.interestRate + 0.5
+}
+
+Then(~/^the interest for this funds is proportional to the deposit time left$/) { ->
+    interestForNewFunds = (interestRateForNewFunds * newFunds) * howManyMonthsWillDepositLast
 }
