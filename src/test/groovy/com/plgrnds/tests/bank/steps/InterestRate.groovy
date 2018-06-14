@@ -24,22 +24,22 @@ this.metaClass.mixin(cucumber.api.groovy.EN)
 @Field Set<Deposit> customerDeposits
 @Field interestRate
 
-Given(~/a customer has a new deposit for a period of 6 months with funds 100^$/) { ->
+Given(~/there is a customer with a deposit opened^$/) { ->
 	customer = new Customer()
-	deposit = new Deposit(customer, 100)
+	deposit = new Deposit(customer, 0)
 }
 
-And(~/the deposit yearly interest rate is 10%/) { ->
-	deposit.interestRate = 10
+And(~//) { ->
+
 }
 
 
 When(~/a termination date has passed/) { ->
-	now==deposit.getTermiantionTime
+
 }
 
 Then(~/105^$ is transferred back to his account/) { ->
-	firstAccount.balance + 105.00
+
 }
 
 
