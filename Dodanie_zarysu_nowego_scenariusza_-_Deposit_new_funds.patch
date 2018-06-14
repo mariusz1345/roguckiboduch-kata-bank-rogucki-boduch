@@ -1,0 +1,34 @@
+Index: groovy/com/plgrnds/tests/bank/steps/DepositNewFunds.groovy
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- groovy/com/plgrnds/tests/bank/steps/DepositNewFunds.groovy	(date 1528974255000)
++++ groovy/com/plgrnds/tests/bank/steps/DepositNewFunds.groovy	(date 1528974369000)
+@@ -21,10 +21,11 @@
+ 
+ Given(~/^there is a customer with a deposit opened$/) { ->
+     customer = new Customer()
++    deposit = new Deposit(customer, 100)
+ 
+ }
+ 
+-Given(~/^a customer has two accounts open$/) { ->
++Given(~/^$/) { ->
+     customer = new Customer()
+     firstAccount = new Account(customer)
+     secondAccount = new Account(customer)
+@@ -32,11 +33,11 @@
+     accountRepository.addAccount(secondAccount)
+ }
+ 
+-When(~/^he lists his accounts$/) { ->
++When(~/^$/) { ->
+     customerAccounts = bank.getCustomerAccounts(customer)
+ }
+ 
+-Then(~/^only those accounts are on the list$/) { ->
++Then(~/^$/) { ->
+     assertThat(customerAccounts).containsExactly(
+             firstAccount, secondAccount
+     )
