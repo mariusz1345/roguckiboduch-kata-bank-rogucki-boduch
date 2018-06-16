@@ -1,7 +1,5 @@
 package com.plgrnds.tests.bank.steps
 
-package com.plgrnds.tests.bank.steps
-
 import com.plgrnds.tests.bank.Account
 import com.plgrnds.tests.bank.AccountRepository
 import com.plgrnds.tests.bank.Bank
@@ -15,30 +13,33 @@ this.metaClass.mixin(cucumber.api.groovy.EN)
 
 @Field AccountRepository accountRepository
 @Field Customer customer
-@Field Bank bank
+
+
+@Field Deposit deposit
+
+@Field Calendar now
+
 
 @Field Set<Account> customerAccounts
-@Field newFunds
-@Field interestRateForNewFunds
-@Field interestForNewFunds
-@Field howManyMonthsWillDepositLast
+@Field Set<Deposit> customerDeposits
+@Field interestRate
+@Field insurance
 
-Given(~/^$/) { ->
+Given(~/there is a customer who is about to open a new deposit of any kind^$/) { ->
     customer = new Customer()
-    accountRepository.addAccount(firstAccount)
     deposit = new Deposit(customer, 100)
+}
+
+And(~/he decided to add the insurance to the deposit^$/) { ->
+    insurance = new Insurance()
 
 }
 
-Given(~/^he transfers new funds to the existing deposit$/) { ->
-    deposit.depositBalance = deposit.depositBalance + newFunds
+
+When(~/a termination date has passed/) { ->
+
 }
 
-When(~/^the interest rate for these funds is 0.5% greater than the original interest rate$/) { ->
-    interestRateForNewFunds = deposit.interestRate + 0.5
-}
+Then(~/105^$ is transferred back to his account/) { ->
 
-Then(~/^the interest for this funds is proportional to the deposit time left$/) { ->
-    interestForNewFunds = (interestRateForNewFunds * newFunds) * howManyMonthsWillDepositLast
 }
-
